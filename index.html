@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>สุขสันต์วันเกิดคุณแม่</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  }
+  h1 {
+    font-size: 3em;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 1.5em;
+    background: rgba(0,0,0,0.3);
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  img.cake {
+    width: 150px;
+    margin-top: 20px;
+  }
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ff69b4;
+    color: white;
+  }
+  button:hover {
+    background-color: #ff4f9d;
+  }
+</style>
+</head>
+<body>
+
+<!-- เพลง -->
+<audio id="bgm" autoplay loop>
+  <source src="song.mp3.mp3" type="audio/mpeg">
+  เบราว์เซอร์ของคุณไม่รองรับการเล่นเพลง
+</audio>
+
+<h1>สุขสันต์วันเกิดคุณแม่ 💖</h1>
+<p>ขอให้คุณแม่มีความสุข สุขภาพแข็งแรงและยิ้มทุกวันนะครับ</p>
+<p>วันนี้เป็นวันที่พิเศษที่สุดเพราะเป็นวันเกิดของเจ้หนิง ขอบคุณสำหรับความรัก ความอบอุ่น</p>
+<p>ขอบคุณที่แม่ยอมเหนื่อยเพื่อลูกเสมอมาโดยไม่เคยร้องขออะไรตอบแทนและทุกอย่างที่มอบให้เสมอ</p>
+<p>ขอให้ปีนี้เต็มไปด้วยสุขภาพที่ดี ความสงบใจ และความสุขเล็กๆ น้อยๆ ทุกวัน</p>
+<p>และถ้าแม่ใจดีขอยืมบัตรไปรูดซื้อโทรศัพท์จอพับก็ดี</p>
+<div style="text-align:right;margin-top:8px;font-weight:700">ด้วยรักจากลูก โยโย่</div>
+<img class="cake" src="cake.png" alt="Birthday Cake">
+
+<!-- ปุ่มควบคุมเพลง -->
+<button onclick="toggleMusic()">⏸ เริ่มเพลง/หยุดเพลง</button>
+
+<script>
+  const images = [
+    'mom1.jpg',
+    'mom2.jpg',
+    'mom3.jpg',
+    'mom4.jpg',
+    'photo.jpg',
+    'mom5.jpg',
+    'mom6.jpg',
+    'mom7.jpg',
+    'mom8.jpg',
+    'mom9.jpg',
+    'mom10.jpg'
+  ];
+  
+  let index = 0;
+  function changeBackground() {
+    document.body.style.backgroundImage = `url('${images[index]}')`;
+    index = (index + 1) % images.length;
+  }
+  setInterval(changeBackground, 3000);
+  changeBackground();
+
+  // ฟังก์ชันหยุด/เล่นเพลง
+  function toggleMusic() {
+    const bgm = document.getElementById("bgm");
+    const btn = document.querySelector("button");
+    if (bgm.paused) {
+      bgm.play();
+      btn.textContent = "⏸ หยุดเพลง";
+    } else {
+      bgm.pause();
+      btn.textContent = "▶ เล่นเพลง";
+    }
+  }
+</script>
+
+</body>
+</html>
